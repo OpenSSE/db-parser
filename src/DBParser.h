@@ -1,29 +1,25 @@
-#ifndef DBParser_h
-#define DBParser_h
-
-
 /***
  * Abstract class to operate with different kind of providers.
  ***/
 
+#ifndef DBParser_h
+#define DBParser_h
+
+#include <string>
+
+using namespace std;
+
 class DBParser
 {
 public:
+    DBParser(const char *filename);
     virtual ~DBParser();
     virtual void parse() = 0;
     
-    void setFile(char* input)
-    {
-        file = input;
-    }
+    const char *get_file();
     
-    char *getFile(){
-        return file;
-    }
 private:
-    char *file;
-    
-    
+    const char *file_;
 };
 
 

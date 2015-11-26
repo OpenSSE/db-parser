@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1625669F1C0610CC004AD24D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1625669E1C0610CC004AD24D /* main.cpp */; };
 		162566A51C063DE1004AD24D /* DBParserJSON.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162566A31C063DE1004AD24D /* DBParserJSON.cpp */; };
+		16366BA41C076C86007A31EA /* DBParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16366BA31C076C86007A31EA /* DBParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,7 @@
 		162566A21C0616A6004AD24D /* DBParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DBParser.h; path = src/DBParser.h; sourceTree = "<group>"; };
 		162566A31C063DE1004AD24D /* DBParserJSON.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBParserJSON.cpp; path = src/json/DBParserJSON.cpp; sourceTree = "<group>"; };
 		162566A41C063DE1004AD24D /* DBParserJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBParserJSON.h; path = src/json/DBParserJSON.h; sourceTree = "<group>"; };
+		16366BA31C076C86007A31EA /* DBParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBParser.cpp; path = src/DBParser.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				162566A01C061334004AD24D /* JSON */,
 				1625669E1C0610CC004AD24D /* main.cpp */,
 				162566A21C0616A6004AD24D /* DBParser.h */,
+				16366BA31C076C86007A31EA /* DBParser.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				162566A51C063DE1004AD24D /* DBParserJSON.cpp in Sources */,
 				1625669F1C0610CC004AD24D /* main.cpp in Sources */,
+				16366BA41C076C86007A31EA /* DBParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,16 +7,22 @@
 
 using namespace rapidjson;
 
+
 class DBParserJSON: public DBParser {
 public:
+    Document d;
+    
     void parse(){
-
-        FILE* fp = fopen(getFile(), "r");
-        char readBuffer[65536];
-        FileReadStream is(fp, readBuffer, sizeof(readBuffer));
-        Document d;
-        d.ParseStream(is);
-        fclose(fp);
+        if(!parsed) {
+            FILE* fp = fopen(get_file(), "r");
+            char readBuffer[65536];
+            FileReadStream is(fp, readBuffer, sizeof(readBuffer));
+    
+            d.ParseStream(is);
+            fclose(fp);
+            parsed = true;
+        }
     }
-
+private:
+    bool parsed = false;
 };
