@@ -10,7 +10,7 @@
 #include "DBParser.h"
 
 
-DBParser::DBParser(const char *filename): file_(filename)
+DBParser::DBParser(const char *filename): file_(filename)  //same as file_ = filename
 {
 }
 

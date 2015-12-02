@@ -13,7 +13,7 @@ class DBParser
 {
 public:
     DBParser(const char *filename);
-    virtual ~DBParser();
+//    virtual ~DBParser();
     virtual void parse() = 0;
     
     const char *get_file();
