@@ -6,12 +6,8 @@
 #include <iostream>
 #include <cstdio>
 
-
 using namespace rapidjson;
 using namespace std;
-
-
-
 
 
 
@@ -26,8 +22,6 @@ void callback_test(Record rec) {
     std::cout << std::endl;
     std::cout << std::endl;
 };
-
-
 
 
 

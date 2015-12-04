@@ -7,13 +7,13 @@
 
 #include <string>
 #include <map>
+#include <utility>
 
 using namespace std;
 
-typedef void(*func)(void*);
-typedef void(*funcV)();
-
-typedef std::map<string, funcV> FQueue;
+typedef void(*func)(void*, void*);
+typedef std::pair<func, void*> funcParam;
+typedef std::map<string, std::pair<func, void*>> FQueue;
 
 class DBParser
 {
@@ -23,8 +23,11 @@ public:
     virtual void parse() = 0;
     
     const char *get_file();
-    void addCallback(string name, funcV funcCall);
-    static void callFunctions();
+    void addCallback(string name, func funcCall, void* param);
+
+    static void callFunctions(void *param_input);
+    static void callFunctions(string context, void *param_input);
+    
     static FQueue funcList_;
 private:
     const char *file_;

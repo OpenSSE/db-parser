@@ -83,9 +83,13 @@ private:
                     record_.keyword = keyword_;
                     record_.identifiers = ids_;
                     state_ = kExpectKeyOrObjectEnd;
-                    //callback_test(record_);
-                    callFunctions();
-                    //parse();
+
+                    /* The first parameter is to filter the functions to be called */
+                    //callFunctions("all", &record_);
+                    
+                    /*This method calls all functions in the scheduler list */
+                    callFunctions(&record_);
+                    
                     keyword_.clear();
                     ids_.clear();
                     return true;
