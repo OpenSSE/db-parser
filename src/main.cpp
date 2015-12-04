@@ -52,8 +52,6 @@ int main(int argc, const char * argv[]) {
     if(argc != 2) {
         std::cout << "usage: " << argv[0] << " <filename> \n";
     } else {
-        DBParserJSON parser(argv[1]);
-        std::cout << "starting the parse \n";
         
         /* We prepare the functions to added into the scheduler */
         
@@ -61,8 +59,13 @@ int main(int argc, const char * argv[]) {
         void (*f2)(void *, void *);
         f1 = &func1;
         f2 = &func2;
-
+        
+        /* This is a local pointer to store the values of the callback */
         list<Record> *listOfRecords = new list<Record>;
+
+        
+        DBParserJSON parser(argv[1]);
+
         
         /* 
          * We add the functions into the scheduler
@@ -70,12 +73,12 @@ int main(int argc, const char * argv[]) {
          * in case that if we need to execute some functions.
          *
          */
-        
+
         parser.addCallback("f1", f1, (void*) listOfRecords); 
         parser.addCallback("f2", f2, (void*) listOfRecords);
-        
-        parser.parse();
 
+        std::cout << "starting the parse \n";
+        parser.parse();
         std::cout << "parse finished \n";
         
         
