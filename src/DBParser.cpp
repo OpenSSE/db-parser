@@ -43,10 +43,10 @@ void DBParser::callFunctions(void *input_callback)
 {
     for (auto const& x : funcList_)
     {
-        std::cout << x.first << ':';
+      //  std::cout << x.first << ':';   for debugging
         funcParam funp = x.second;
         (* funp.first)(funp.second, input_callback);
-        std::cout << std::endl ;
+      //  std::cout << std::endl ;
     }
 }
 
@@ -56,10 +56,10 @@ void DBParser::callFunctions(string context,void *input_callback)
     for (auto const& x : funcList_)
     {
         if(context == x.first){
-            std::cout << x.first << ':';
+          //  std::cout << x.first << ':';
             funcParam funp = x.second;
             (* funp.first)(funp.second, input_callback);
-            std::cout << std::endl ;
+          //  std::cout << std::endl ;
         }
     }
 }

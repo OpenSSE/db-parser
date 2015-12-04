@@ -42,7 +42,7 @@ void func1(void* param_input, void* input_callback)
  */
 void func2(void* param_input, void* input_callback)
 {
-    printf( "func2\n" );
+    printf( "func2 was called. \n" );
 }
 
 
