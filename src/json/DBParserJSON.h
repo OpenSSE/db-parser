@@ -18,7 +18,6 @@ typedef struct {
 } Record;
 
 
-
 class DBParserJSON: public DBParser {
     using DBParser::DBParser;
 public:
@@ -84,11 +83,7 @@ private:
                     record_.identifiers = ids_;
                     state_ = kExpectKeyOrObjectEnd;
 
-                    /* The first parameter is to filter the functions to be called */
-                    //callFunctions("all", &record_);
-                    
-                    /*This method calls all functions in the scheduler list */
-                    callFunctions(&record_);
+                    callFunctionsList(keyword_, ids_);
                     
                     keyword_.clear();
                     ids_.clear();

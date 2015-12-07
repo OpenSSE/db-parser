@@ -9,8 +9,6 @@
 using namespace rapidjson;
 using namespace std;
 
-
-
 void DBParserJSON::parse(){
     if(!parsed_) {
         FILE* fp = fopen(get_file(), "r");

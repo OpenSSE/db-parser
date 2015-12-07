@@ -25,24 +25,13 @@
  * param_input.append(input_callback)
  *
  */
-void func1(void* param_input, void* input_callback)
+void func1(const string& keyword, const list<unsigned> &documents)
 {
-    list<Record> *listOfRecords = (list<Record> *)param_input;
-    Record *mrecord = (Record *)input_callback;
-    
-    (* listOfRecords).push_back(*mrecord);
-}
-
-
-/* This function does nothing, it is just to have two functions
- * in the scheduler. 
- * 
- * The scheduler first call func1(_) and then it calls func2(_)
- *
- */
-void func2(void* param_input, void* input_callback)
-{
-    printf( "func2 was called. \n" );
+    std::cout << keyword << ':';
+    for (auto const& x: documents){
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
 }
 
 
@@ -55,18 +44,11 @@ int main(int argc, const char * argv[]) {
         
         /* We prepare the functions to added into the scheduler */
         
-        void (*f1)(void *, void *);
-        void (*f2)(void *, void *);
+        void (*f1)(const string& keyword, const list<unsigned> &documents);
         f1 = &func1;
-        f2 = &func2;
         
-        /* This is a local pointer to store the values of the callback */
-        list<Record> *listOfRecords = new list<Record>;
-
         
         DBParserJSON parser(argv[1]);
-
-        
         /* 
          * We add the functions into the scheduler
          * The first parameter is an identifier (name) for the scheduler executor, 
@@ -74,25 +56,12 @@ int main(int argc, const char * argv[]) {
          *
          */
 
-        parser.addCallback("f1", f1, (void*) listOfRecords); 
-        parser.addCallback("f2", f2, (void*) listOfRecords);
+        parser.addCallbackList(f1);
 
         std::cout << "starting the parse \n";
         parser.parse();
         std::cout << "parse finished \n";
         
-        
-        /* Now it is possible to iterate over listOfRecords */
-        std::cout << "printing the list \n";
-        for (auto const& x : *listOfRecords)
-        {
-            std::cout << x.keyword << ':';
-            for(auto const& y : x.identifiers)
-            {
-                std::cout << y << " ";
-            }
-            std::cout << std::endl ;
-        }
     }
     return 0;
 }
