@@ -12,12 +12,6 @@
 
 using namespace rapidjson;
 
-typedef struct {
-    string keyword;
-    list<unsigned> identifiers;
-} Record;
-
-
 class DBParserJSON: public DBParser {
     using DBParser::DBParser;
 public:
@@ -67,9 +61,11 @@ private:
                 case kExpectFirstValue:
                     ids_.push_back(i);
                     state_ = kExpectValueOrEndArray;
+                    callFunctionsPair(keyword_, ids_.front());
                     return true;
                 case kExpectValueOrEndArray:
                     ids_.push_back(i);
+                    callFunctionsPair(keyword_, ids_.front());
                     return true;
                 default:
                     return false;
@@ -79,8 +75,6 @@ private:
         bool EndArray(SizeType elementCount) {
             switch(state_){
                 case kExpectValueOrEndArray:
-                    record_.keyword = keyword_;
-                    record_.identifiers = ids_;
                     state_ = kExpectKeyOrObjectEnd;
 
                     callFunctionsList(keyword_, ids_);
@@ -107,9 +101,8 @@ private:
             kExpectStartList,
             kExpectFirstValue,
             kExpectValueOrEndArray,
-        } state_;
-        
-        Record record_;
+        } state_;        
+
         string keyword_;
         list<unsigned> ids_;
     };
