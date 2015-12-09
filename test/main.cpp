@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
     *
     */
 
-    parser.addCallbackList(f1);
+    parser.addCallbackList(func1);
 
     std::cout << "starting the parse \n";
     parser.parse();
