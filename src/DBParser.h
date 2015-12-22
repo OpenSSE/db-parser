@@ -9,18 +9,15 @@
 #include <map>
 #include <utility>
 #include <list>
+#include <functional>
 
 using namespace std;
 
-typedef void(*func)(void*, void*);
+/* std::function<void(int)> callback */
 
-typedef std::pair<func, void*> funcParam;
-typedef std::map<string, std::pair<func, void*>> FQueue;
+typedef std::function<void(const string& keyword, const list<unsigned> &documents)> funcList;
+typedef std::function<void(const string& keyword, const unsigned &doc)> funcPair;
 
-
-
-typedef void(*funcList)(const string& keyword, const list<unsigned> &documents);
-typedef void(*funcPair)(const string& keyword, const unsigned &doc);
 typedef std::list<funcPair> FPairQueue;
 typedef std::list<funcList> FListQueue;
 
@@ -32,18 +29,12 @@ public:
     virtual void parse() = 0;
     
     const char *get_file();
-    void addCallback(string name, func funcCall, void* param);
 
     void addCallbackPair(funcPair);
     void addCallbackList(funcList);
 
-    static void callFunctions(void *param_input);
-    static void callFunctions(string context, void *param_input);
-    
     static void callFunctionsPair(const string& keyword, const unsigned &doc);
     static void callFunctionsList(const string& keyword, const list<unsigned> &documents);
-    
-    static FQueue funcList_;
     
     static FPairQueue pairqueue_;
     static FListQueue listqueue_;

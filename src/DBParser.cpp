@@ -1,10 +1,3 @@
-//
-//  DBParser.cpp
-//  db-parser
-//
-//  Created by Mario Cornejo on 26/11/15.
-//  Copyright © 2015 ENS. All rights reserved.
-//
 
 #include <stdio.h>
 #include <iostream>
@@ -13,8 +6,6 @@
 using namespace std;
 
 /* The list of the functions to be called*/
-FQueue DBParser::funcList_;
-
 FPairQueue DBParser::pairqueue_;
 FListQueue DBParser::listqueue_;
 
@@ -32,11 +23,7 @@ const char * DBParser::get_file()
  * change the name for registerCallback 
  */
 
-void DBParser::addCallback(string name, func funcCall, void* param)
-{
-    funcList_.insert(std::pair<string, funcParam>(name, std::pair<func, void*>(funcCall, param)));
-}
-
+/* std::function<void(int)> callback */
 void DBParser::addCallbackList(funcList funcCall){
     listqueue_.push_back(funcCall);
 }
@@ -61,30 +48,5 @@ void DBParser::callFunctionsPair(const string &keyword, const unsigned &doc){
     for(auto const& f: pairqueue_)
     {
         f(keyword, doc);
-    }
-}
-
-void DBParser::callFunctions(void *input_callback)
-{
-    for (auto const& x : funcList_)
-    {
-      //  std::cout << x.first << ':';   for debugging
-        funcParam funp = x.second;
-        (* funp.first)(funp.second, input_callback);
-      //  std::cout << std::endl ;
-    }
-}
-
-/* Execute functions that the name matches with the context */
-void DBParser::callFunctions(string context,void *input_callback)
-{
-    for (auto const& x : funcList_)
-    {
-        if(context == x.first){
-          //  std::cout << x.first << ':';
-            funcParam funp = x.second;
-            (* funp.first)(funp.second, input_callback);
-          //  std::cout << std::endl ;
-        }
     }
 }
