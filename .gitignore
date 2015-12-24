@@ -58,8 +58,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-
-
+# SConstruct
+.sconsign.dblite
+library/
 
 # Xcode
 #
