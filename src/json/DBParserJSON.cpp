@@ -8,6 +8,11 @@
 using namespace rapidjson;
 using namespace std;
 
+namespace sse
+{
+namespace dbparser
+{
+
 struct DBParserJSON::MessageHandler : public BaseReaderHandler<UTF8<>, MessageHandler>
 {
     MessageHandler(): state_(kExpectObjectStart) {
@@ -112,6 +117,8 @@ void DBParserJSON::parse(){
     }
 };
 
+}
+}
 
 
 

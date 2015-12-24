@@ -7,6 +7,10 @@
 #include <iostream>
 #include <cstdio>
 
+namespace sse
+{
+namespace dbparser
+{
 
 class DBParserJSON: public DBParser {
     using DBParser::DBParser;
@@ -20,5 +24,7 @@ private:
 };
 
 
+}
+}
 
 #endif

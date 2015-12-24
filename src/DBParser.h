@@ -13,6 +13,11 @@
 
 using namespace std;
 
+
+namespace sse
+{
+namespace dbparser
+{
 /* std::function<void(int)> callback */
 
 typedef std::function<void(const string& keyword, const list<unsigned> &documents)> funcList;
@@ -42,5 +47,7 @@ private:
     const char *file_;
 };
 
+}
+}
 
 #endif /* DBParser_h */

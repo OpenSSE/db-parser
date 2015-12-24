@@ -5,6 +5,11 @@
 
 using namespace std;
 
+namespace sse
+{
+namespace dbparser
+{
+
 /* The list of the functions to be called*/
 FPairQueue DBParser::pairqueue_;
 FListQueue DBParser::listqueue_;
@@ -49,4 +54,7 @@ void DBParser::callFunctionsPair(const string &keyword, const unsigned &doc){
     {
         f(keyword, doc);
     }
+}
+
+}
 }

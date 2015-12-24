@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     
     
     if(argc != 2) {
-        filename = "inverted_index_docs.txt";
+        filename = "test/inverted_index_docs.txt";
         //std::cout << "usage: " << argv[0] << " <filename> \n";
     } else {
         filename = argv[1];
@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
     f1 = &func1;
         
         
-    DBParserJSON parser(filename);
+    sse::dbparser::DBParserJSON parser(filename);
     /*
     * We add the functions into the scheduler
     * The first parameter is an identifier (name) for the scheduler executor,

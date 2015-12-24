@@ -61,6 +61,7 @@ Temporary Items
 # SConstruct
 .sconsign.dblite
 library/
+test/main
 
 # Xcode
 #
