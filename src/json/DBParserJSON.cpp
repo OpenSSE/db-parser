@@ -115,11 +115,13 @@ void DBParserJSON::parse(){
         fclose(fp);
         parsed_ = true;
     }
-};
+}
+
+bool DBParserJSON::parsed() {
+    return parsed_;
+}
 
 }
 }
-
-
 
 

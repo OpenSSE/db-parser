@@ -32,9 +32,10 @@ public:
     DBParser(const char *filename);
 //    virtual ~DBParser();
     virtual void parse() = 0;
-    
     const char *get_file();
 
+    bool parsed();
+    
     void addCallbackPair(funcPair);
     void addCallbackList(funcList);
 
@@ -43,8 +44,10 @@ public:
     
     static FPairQueue pairqueue_;
     static FListQueue listqueue_;
+    
 private:
     const char *file_;
+
 };
 
 }
