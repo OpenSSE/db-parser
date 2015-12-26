@@ -16,6 +16,7 @@ class DBParserJSON: public DBParser {
     using DBParser::DBParser;
 public:
     void parse();
+    bool parsed();
     
 private:
     bool parsed_ = false;

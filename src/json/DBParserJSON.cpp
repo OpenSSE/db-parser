@@ -114,6 +114,6 @@ void DBParserJSON::parse(){
 };
 
 
-
-
-
+bool DBParserJSON::parsed() {
+    return parsed_;
+}
