@@ -98,7 +98,7 @@ struct DBParserJSON::MessageHandler : public BaseReaderHandler<UTF8<>, MessageHa
     } state_;
     
     string keyword_;
-    list<unsigned> ids_;
+    vector<unsigned> ids_;
 };
 
 void DBParserJSON::parse(){
