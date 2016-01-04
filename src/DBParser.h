@@ -10,7 +10,7 @@
 #include <utility>
 #include <list>
 #include <functional>
-#include <vector>
+#include <list>
 
 using namespace std;
 
@@ -21,11 +21,11 @@ namespace dbparser
 {
 /* std::function<void(int)> callback */
 
-typedef std::function<void(const string& keyword, const vector<unsigned> &documents)> funcList;
+typedef std::function<void(const string& keyword, const list<unsigned> &documents)> funcList;
 typedef std::function<void(const string& keyword, const unsigned &doc)> funcPair;
 
-typedef std::vector<funcPair> FPairQueue;
-typedef std::vector<funcList> FListQueue;
+typedef std::list<funcPair> FPairQueue;
+typedef std::list<funcList> FListQueue;
 
 class DBParser
 {
@@ -41,7 +41,7 @@ public:
     void addCallbackList(funcList);
 
     static void callFunctionsPair(const string& keyword, const unsigned &doc);
-    static void callFunctionsList(const string& keyword, const vector<unsigned> &documents);
+    static void callFunctionsList(const string& keyword, const list<unsigned> &documents);
     
     static FPairQueue pairqueue_;
     static FListQueue listqueue_;

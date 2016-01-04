@@ -42,7 +42,7 @@ void DBParser::addCallbackPair(funcPair funcCall){
 
 /* Execute all functions in the list of task */
 
-void DBParser::callFunctionsList(const string &keyword, const vector<unsigned> &documents){
+void DBParser::callFunctionsList(const string &keyword, const list<unsigned> &documents){
     for(auto const& f: listqueue_)
     {
         f(keyword, documents);
