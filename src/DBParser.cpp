@@ -16,6 +16,8 @@ FListQueue DBParser::listqueue_;
 
 DBParser::DBParser(const char *filename): file_(filename)  //same as file_ = filename
 {
+	pairqueue_.clear();
+	listqueue_.clear();
 }
 
 const char * DBParser::get_file()
