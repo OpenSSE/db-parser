@@ -55,11 +55,11 @@ struct DBParserJSON::MessageHandler : public BaseReaderHandler<UTF8<>, MessageHa
             case kExpectFirstValue:
                 ids_.push_back(i);
                 state_ = kExpectValueOrEndArray;
-                callFunctionsPair(keyword_, ids_.front());
+                callFunctionsPair(keyword_, ids_.back());
                 return true;
             case kExpectValueOrEndArray:
                 ids_.push_back(i);
-                callFunctionsPair(keyword_, ids_.front());
+                callFunctionsPair(keyword_, ids_.back());
                 return true;
             default:
                 return false;
