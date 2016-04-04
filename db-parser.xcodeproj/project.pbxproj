@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		163E9E6A1C17448200E63E9E /* DBParserJSON.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162566A31C063DE1004AD24D /* DBParserJSON.cpp */; };
 		163E9E6B1C17448200E63E9E /* DBParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16366BA31C076C86007A31EA /* DBParser.cpp */; };
-		163E9E6D1C17449200E63E9E /* DBParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 162566A21C0616A6004AD24D /* DBParser.h */; };
-		163E9E6E1C1744A600E63E9E /* liblibparser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 163E9E661C17446D00E63E9E /* liblibparser.a */; };
+		163E9E6D1C17449200E63E9E /* DBParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 162566A21C0616A6004AD24D /* DBParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		163E9E6E1C1744A600E63E9E /* libparser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 163E9E661C17446D00E63E9E /* libparser.dylib */; };
 		16A3E4D91C1720AE00383B85 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A3E4CB1C171F2E00383B85 /* main.cpp */; };
+		315EC2811CB2D7A9009511D5 /* DBParserJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 162566A41C063DE1004AD24D /* DBParserJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +32,7 @@
 		162566A31C063DE1004AD24D /* DBParserJSON.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBParserJSON.cpp; path = src/json/DBParserJSON.cpp; sourceTree = "<group>"; };
 		162566A41C063DE1004AD24D /* DBParserJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBParserJSON.h; path = src/json/DBParserJSON.h; sourceTree = "<group>"; };
 		16366BA31C076C86007A31EA /* DBParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBParser.cpp; path = src/DBParser.cpp; sourceTree = "<group>"; };
-		163E9E661C17446D00E63E9E /* liblibparser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibparser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		163E9E661C17446D00E63E9E /* libparser.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libparser.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A3E3F71C16EEF300383B85 /* allocators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = allocators.h; path = src/json/rapidjson102/allocators.h; sourceTree = "<group>"; };
 		16A3E3F81C16EEF300383B85 /* document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = document.h; path = src/json/rapidjson102/document.h; sourceTree = "<group>"; };
 		16A3E3F91C16EEF300383B85 /* encodedstream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = encodedstream.h; path = src/json/rapidjson102/encodedstream.h; sourceTree = "<group>"; };
@@ -76,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				163E9E6E1C1744A600E63E9E /* liblibparser.a in Frameworks */,
+				163E9E6E1C1744A600E63E9E /* libparser.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				16A3E4D21C17202C00383B85 /* native_test */,
-				163E9E661C17446D00E63E9E /* liblibparser.a */,
+				163E9E661C17446D00E63E9E /* libparser.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				163E9E6D1C17449200E63E9E /* DBParser.h in Headers */,
+				315EC2811CB2D7A9009511D5 /* DBParserJSON.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +218,7 @@
 			);
 			name = libparser;
 			productName = libparser;
-			productReference = 163E9E661C17446D00E63E9E /* liblibparser.a */;
+			productReference = 163E9E661C17446D00E63E9E /* libparser.dylib */;
 			productType = "com.apple.product-type.library.static";
 		};
 		16A3E4D11C17202C00383B85 /* native_test */ = {
@@ -374,20 +376,28 @@
 		163E9E681C17446D00E63E9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				EXECUTABLE_PREFIX = lib;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				MACH_O_TYPE = mh_dylib;
+				PRIVATE_HEADERS_FOLDER_PATH = "include/db-parser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/db-parser";
 			};
 			name = Debug;
 		};
 		163E9E691C17446D00E63E9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				EXECUTABLE_PREFIX = lib;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				MACH_O_TYPE = mh_dylib;
+				PRIVATE_HEADERS_FOLDER_PATH = "include/db-parser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/db-parser";
 			};
 			name = Release;
 		};
