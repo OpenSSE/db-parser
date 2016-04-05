@@ -381,9 +381,9 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				MACH_O_TYPE = mh_dylib;
-				PRIVATE_HEADERS_FOLDER_PATH = "include/db-parser";
+				PRIVATE_HEADERS_FOLDER_PATH = include/sse/dbparser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "include/db-parser";
+				PUBLIC_HEADERS_FOLDER_PATH = include/sse/dbparser;
 			};
 			name = Debug;
 		};
@@ -395,9 +395,9 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				MACH_O_TYPE = mh_dylib;
-				PRIVATE_HEADERS_FOLDER_PATH = "include/db-parser";
+				PRIVATE_HEADERS_FOLDER_PATH = include/sse/dbparser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "include/db-parser";
+				PUBLIC_HEADERS_FOLDER_PATH = include/sse/dbparser;
 			};
 			name = Release;
 		};
