@@ -13,6 +13,7 @@
 		163E9E6E1C1744A600E63E9E /* libparser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 163E9E661C17446D00E63E9E /* libparser.dylib */; };
 		16A3E4D91C1720AE00383B85 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A3E4CB1C171F2E00383B85 /* main.cpp */; };
 		315EC2811CB2D7A9009511D5 /* DBParserJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 162566A41C063DE1004AD24D /* DBParserJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CF416171CB7A3D900C448D4 /* rapidjson in Headers */ = {isa = PBXBuildFile; fileRef = 6CF416161CB7A3D900C448D4 /* rapidjson */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		16A3E4CB1C171F2E00383B85 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = test/main.cpp; sourceTree = "<group>"; };
 		16A3E4CC1C171F2E00383B85 /* inverted_index_docs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = inverted_index_docs.txt; path = test/inverted_index_docs.txt; sourceTree = "<group>"; };
 		16A3E4D21C17202C00383B85 /* native_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = native_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CF416161CB7A3D900C448D4 /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; name = rapidjson; path = src/json/rapidjson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		1625668A1C061063004AD24D = {
 			isa = PBXGroup;
 			children = (
+				6CF416161CB7A3D900C448D4 /* rapidjson */,
 				1625669D1C06109A004AD24D /* src */,
 				16A3E4CA1C171D2100383B85 /* test */,
 				162566941C061063004AD24D /* Products */,
@@ -198,6 +201,7 @@
 			files = (
 				163E9E6D1C17449200E63E9E /* DBParser.h in Headers */,
 				315EC2811CB2D7A9009511D5 /* DBParserJSON.h in Headers */,
+				6CF416171CB7A3D900C448D4 /* rapidjson in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

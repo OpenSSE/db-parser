@@ -1,7 +1,7 @@
 #include "DBParserJSON.h"
 
-#include "rapidjson102/filereadstream.h"
-#include "rapidjson102/document.h"
+#include "rapidjson/filereadstream.h"
+#include "rapidjson/document.h"
 #include <iostream>
 #include <cstdio>
 

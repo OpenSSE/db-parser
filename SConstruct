@@ -57,7 +57,10 @@ shared_lib = shared_lib_env.SharedLibrary(library_build_prefix+'/lib/sse_dbparse
 static_lib = env.StaticLibrary(library_build_prefix+'/lib/sse_dbparser',objects)
 
 headers = Glob('src/*.h') + Glob('src/json/*.h')
-headers_lib = [env.Install(library_build_prefix+'/include/sse/dbparser', headers)]
+rapidjson = Dir("src/json/rapidjson")
+
+headers_lib = [env.Install(library_build_prefix+'/include/sse/dbparser', headers + [rapidjson])]
+# rapidjson_lib = [env.Install(library_build_prefix+'/include/sse/dbparser', rapidjson)]
 
 env.Clean(headers_lib,[library_build_prefix+'/include'])
 
