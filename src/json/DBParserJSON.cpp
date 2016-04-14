@@ -101,6 +101,19 @@ struct DBParserJSON::MessageHandler : public BaseReaderHandler<UTF8<>, MessageHa
     list<unsigned> ids_;
 };
 
+    DBParserJSON::DBParserJSON(const char *filename)
+    : DBParser(filename)
+    {
+        
+    }
+    
+    DBParserJSON::DBParserJSON(const std::string& filename)
+    : DBParser(filename.c_str())
+    {
+        
+    }
+
+
 void DBParserJSON::parse(){
     if(!parsed_) {
         FILE* fp = fopen(get_file(), "r");

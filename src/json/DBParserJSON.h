@@ -13,8 +13,9 @@ namespace dbparser
 {
 
 class DBParserJSON: public DBParser {
-    using DBParser::DBParser;
 public:
+    DBParserJSON(const char *filename);
+    DBParserJSON(const std::string& filename);
     void parse();
     bool parsed();
     
