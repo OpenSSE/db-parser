@@ -14,7 +14,6 @@ if FindFile('config.scons', '.'):
 env.Append(CFLAGS=['-std=c99'])
 env.Append(CCFLAGS=['-Wall', '-march=native', '-maes', '-fPIC'])
 env.Append(CXXFLAGS=['-std=c++11'])
-env.Append(LIBS = ['crypto'])
 
 
 env['STATIC_AND_SHARED_OBJECTS_ARE_THE_SAME']=1
