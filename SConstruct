@@ -5,7 +5,7 @@ env = Environment()
 try:
     env.Append(ENV = {'TERM' : os.environ['TERM']}) # Keep our nice terminal environment (like colors ...)
 except:
-    print "Not running in a terminal"
+    print("Not running in a terminal")
 
 
 if FindFile('config.scons', '.'):
