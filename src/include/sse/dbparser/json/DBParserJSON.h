@@ -1,26 +1,28 @@
 #ifndef DBParserJSON_h
 #define DBParserJSON_h
 
+#include <sse/dbparser/DBParser.h>
+
 #include <cstdio>
+
 #include <iostream>
 #include <list>
-#include <sse/dbparser/DBParser.h>
-#include <stdio.h>
 
 namespace sse {
 namespace dbparser {
 
-class DBParserJSON : public DBParser {
+class DBParserJSON : public DBParser
+{
 public:
-  DBParserJSON(const char *filename);
-  DBParserJSON(const std::string &filename);
-  void parse();
-  bool parsed();
+    explicit DBParserJSON(const char* filename);
+    explicit DBParserJSON(const std::string& filename);
+    void parse() override;
+    bool parsed();
 
 private:
-  bool parsed_ = false;
+    bool parsed_ = false;
 
-  struct MessageHandler;
+    struct MessageHandler;
 };
 
 } // namespace dbparser

@@ -5,53 +5,50 @@
 #ifndef DBParser_h
 #define DBParser_h
 
-#include <string>
-#include <map>
-#include <utility>
-#include <list>
 #include <functional>
 #include <list>
+#include <map>
+#include <string>
+#include <utility>
 
-using namespace std;
 
-
-namespace sse
-{
-namespace dbparser
-{
+namespace sse {
+namespace dbparser {
 /* std::function<void(int)> callback */
 
-typedef std::function<void(const string& keyword, const list<unsigned> &documents)> funcList;
-typedef std::function<void(const string& keyword, const unsigned &doc)> funcPair;
+using funcList
+    = std::function<void(const std::string&, const std::list<unsigned int>&)>;
+using funcPair = std::function<void(const std::string&, const unsigned int&)>;
 
-typedef std::list<funcPair> FPairQueue;
-typedef std::list<funcList> FListQueue;
+using FPairQueue = std::list<funcPair>;
+using FListQueue = std::list<funcList>;
 
 class DBParser
 {
 public:
-    DBParser(const char *filename);
-//    virtual ~DBParser();
+    explicit DBParser(const char* filename);
+    //    virtual ~DBParser();
     virtual void parse() = 0;
-    const char *get_file();
+    const char*  get_file();
 
     bool parsed();
-    
-    void addCallbackPair(funcPair);
-    void addCallbackList(funcList);
 
-    static void callFunctionsPair(const string& keyword, const unsigned &doc);
-    static void callFunctionsList(const string& keyword, const list<unsigned> &documents);
-    
+    void addCallbackPair(const funcPair& funcCall);
+    void addCallbackList(const funcList& funcCall);
+
+    static void callFunctionsPair(const std::string& keyword,
+                                  const unsigned&    doc);
+    static void callFunctionsList(const std::string&         keyword,
+                                  const std::list<unsigned>& documents);
+
     static FPairQueue pairqueue_;
     static FListQueue listqueue_;
-    
-private:
-    const char *file_;
 
+private:
+    const char* file_;
 };
 
-}
-}
+} // namespace dbparser
+} // namespace sse
 
 #endif /* DBParser_h */
